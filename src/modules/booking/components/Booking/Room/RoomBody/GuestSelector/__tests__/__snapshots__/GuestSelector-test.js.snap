@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuessSelector renders disabled fields when disabled flag is true 1`] = `"<div class=\\"column guess-selector\\"><label>My Guess Selector</label><select name=\\"my-guess\\" disabled=\\"\\"><option value=\\"0\\">0</option><option value=\\"1\\">1</option><option value=\\"2\\">2</option><option value=\\"3\\">3</option></select></div>"`;
+
+exports[`GuessSelector renders enabled fields when disabled flag is flase 1`] = `"<div class=\\"column guess-selector\\"><label>My Guess Selector</label><select name=\\"my-guess\\"><option value=\\"0\\">0</option><option value=\\"1\\">1</option><option value=\\"2\\">2</option></select></div>"`;

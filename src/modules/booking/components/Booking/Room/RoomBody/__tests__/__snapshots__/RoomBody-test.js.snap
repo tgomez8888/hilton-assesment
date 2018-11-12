@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoomBody renders disabled fields when room is not selected 1`] = `"<div class=\\"card-body\\"><div class=\\"column guess-selector\\"><label>Adults (18+)</label><select name=\\"adults\\" disabled=\\"\\"><option value=\\"1\\">1</option><option value=\\"2\\">2</option></select></div><div class=\\"column guess-selector\\"><label>Children (0-17)</label><select name=\\"children\\" disabled=\\"\\"><option value=\\"0\\">0</option><option value=\\"1\\">1</option><option value=\\"2\\">2</option></select></div></div>"`;
+
+exports[`RoomBody renders enabled fields when room is selected 1`] = `"<div class=\\"card-body\\"><div class=\\"column guess-selector\\"><label>Adults (18+)</label><select name=\\"adults\\"><option value=\\"1\\">1</option><option value=\\"2\\">2</option></select></div><div class=\\"column guess-selector\\"><label>Children (0-17)</label><select name=\\"children\\"><option value=\\"0\\">0</option><option value=\\"1\\">1</option><option value=\\"2\\">2</option></select></div></div>"`;
