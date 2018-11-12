@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  hilton-assessment:
+    container_name: sample-app
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
