@@ -28,17 +28,17 @@ export const updateRoom =  curry((newRoom, rooms) => pipe(
   values
 )(rooms)); 
 
-const isHigherPriority = curry((newRoom, room) => pipe(
+export const isHigherPriority = curry((newRoom, room) => pipe(
   prop("priority"),
   lt(__, newRoom.priority)
 )(room));
 
-const isLowerOrSamePriority = curry((newRoom, room) => pipe(
+export const isLowerOrSamePriority = curry((newRoom, room) => pipe(
   prop("priority"),
   gte(__, newRoom.priority)
 )(room));
 
-const setDefaultValues = evolve({
+export const setDefaultValues = evolve({
   selected: always(false),
   adults: always("1"),
   children: always("0")
