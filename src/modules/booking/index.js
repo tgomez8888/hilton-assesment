@@ -1,3 +1,2 @@
-import Booking from "./components/Booking";
-
-export default {Booking};
+export {Booking} from "./components/Booking";
+export {reducer} from "./reducer";
