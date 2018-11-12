@@ -1,8 +1,13 @@
 import { createStore } from "redux";
 import reducer from "./reducer";
 
-export default function configureStore() {
-  const store = createStore(reducer);
+export function configureStore() {
+  /* eslint-disable no-underscore-dangle */
+  const store = createStore(
+    reducer, /* preloadedState, */
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+   );
+  /* eslint-enable */
 
   if (module.hot) {
     module.hot.accept("./reducer", () => {
@@ -13,5 +18,7 @@ export default function configureStore() {
     });
   }
 
-  return reducer;
+  return store;
 }
+
+export default configureStore;

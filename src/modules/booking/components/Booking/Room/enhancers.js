@@ -1,30 +1,10 @@
-import { mapProps } from "recompose";
-import { assoc, pipe } from "ramda";
+import { connect } from "react-redux";
+import { getRoomById } from "../../../selectors";
 
-function setHandlers({ room, onRoomValuesChange, onRoomSelectionChange }) {
-  const onRoomValueChange = e => {
-    if (!e || !e.target) return;
-
-    return pipe(
-      assoc(e.target.name, e.target.value),
-      onRoomValuesChange
-    )(room);
-  };
-
-  const onRoomSelectedChange = e => {
-    if (!e || !e.target) return;
-
-    return pipe(
-      assoc(e.target.name, e.target.checked),
-      onRoomSelectionChange
-    )(room);
-  };
-
+function mapStateToProps(state, { id }) {
   return {
-    room,
-    onRoomValueChange,
-    onRoomSelectedChange
+    room:getRoomById(state, id )    
   };
 }
 
-export default mapProps(setHandlers);
+export default connect(mapStateToProps);

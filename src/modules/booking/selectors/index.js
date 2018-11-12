@@ -1,13 +1,20 @@
-import { keys, path, pipe, prop, sort } from "ramda";
+import { identity, keys, path, pipe, prop, sortBy } from "ramda";
 
 const localizeState = path(["app", "booking"]);
 
+export function getRooms(state) {
+  return pipe(
+    localizeState,    
+    prop("rooms")    
+  )(state);
+}
+
 export function getRoomsId(state) {
   return pipe(
-    localizeState,
+    localizeState,    
     prop("rooms"),
-    keys,
-    sort
+    keys,    
+    sortBy(identity)    
   )(state);
 }
 

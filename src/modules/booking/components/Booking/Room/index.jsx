@@ -4,7 +4,7 @@ import RoomHeader from "./RoomHeader";
 import RoomBody from "./RoomBody";
 import enhance from "./enhancers";
 
-export function Room({ room, onRoomSelectedChange, onRoomValueChange }) {
+export function Room({ room }) {
   const roomClasses = classnames({
     "card-container": true,
     "disabled": !room.selected
@@ -12,8 +12,8 @@ export function Room({ room, onRoomSelectedChange, onRoomValueChange }) {
 
   return (
     <div className={roomClasses}>
-      <RoomHeader room={room} onRoomValuesChange={onRoomSelectedChange} />
-      <RoomBody room={room} onRoomValuesChange={onRoomValueChange} />
+      <RoomHeader room={room} />
+      <RoomBody room={room} />
     </div>
   );
 }

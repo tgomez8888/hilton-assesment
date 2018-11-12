@@ -22,21 +22,27 @@ export const defaultRooms = [
   { id: 4, priority: 4, selected: false, adults: "1", children: "0" }
 ];
 
-export const updateRoom =  curry((newRoom, rooms) => pipe(
-  indexBy(prop("id")),
-  assoc(newRoom.id, newRoom),
-  values
-)(rooms)); 
+export const updateRoom = curry((newRoom, rooms) =>
+  pipe(
+    indexBy(prop("id")),
+    assoc(newRoom.id, newRoom),
+    values
+  )(rooms)
+);
 
-export const isHigherPriority = curry((newRoom, room) => pipe(
-  prop("priority"),
-  lt(__, newRoom.priority)
-)(room));
+export const isHigherPriority = curry((newRoom, room) =>
+  pipe(
+    prop("priority"),
+    lt(__, newRoom.priority)
+  )(room)
+);
 
-export const isLowerOrSamePriority = curry((newRoom, room) => pipe(
-  prop("priority"),
-  gte(__, newRoom.priority)
-)(room));
+export const isLowerOrSamePriority = curry((newRoom, room) =>
+  pipe(
+    prop("priority"),
+    gte(__, newRoom.priority)
+  )(room)
+);
 
 export const setDefaultValues = evolve({
   selected: always(false),
@@ -46,29 +52,24 @@ export const setDefaultValues = evolve({
 
 /**
  * This method receives a room with changes and calculates if the other rooms need to changes.
- * If room is selected all rooms with higher priority (lower priority value) will 
+ * If room is selected all rooms with higher priority (lower priority value) will
  * be selected.
- * If room is not selected all rooms with lower or same priority (higher priority value) will be 
+ * If room is not selected all rooms with lower or same priority (higher priority value) will be
  * unselected and set default values.
- * @param {Object} newRoom This is the modified room object 
+ * @param {Object} newRoom This is the modified room object
  * @param {[Object]} rooms The current list of rooms in state
- * @returns {[Object]} New list of rooms with modifications 
+ * @returns {[Object]} New list of rooms with modifications
  */
-export const processRoomSelectionChanges = (newRoom, rooms) => {
-   
+export const processRoomSelectionChanges = curry((newRoom, rooms) => {
   const turnOnHigherPriority = map(
     ifElse(isHigherPriority(newRoom), assoc("selected", true), identity)
-  ); 
-  const turnOffLowerPriority = map(
-    ifElse(
-      isLowerOrSamePriority(newRoom),
-      setDefaultValues,
-      identity
-    )
   );
 
-  return  pipe(
-    updateRoom(newRoom),
+  const turnOffLowerPriority = map(
+    ifElse(isLowerOrSamePriority(newRoom), setDefaultValues, identity)
+  );
+
+  return pipe(
     ifElse(() => newRoom.selected, turnOnHigherPriority, turnOffLowerPriority)
   )(rooms);
-}
+});

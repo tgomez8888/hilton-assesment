@@ -1,2 +1,2 @@
 export {Booking} from "./components/Booking";
-export {reducer} from "./reducer";
+export {reducer} from "./reducers";

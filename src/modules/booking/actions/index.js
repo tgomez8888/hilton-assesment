@@ -9,14 +9,14 @@ export function setRoomsValue(rooms) {
 
 export function roomValueChange(id, name, value) {
   return {
-    type: ActionType.SET_ROOMS_VALUE,
+    type: ActionType.ROOM_VALUE_CHANGE,
     payload: { id, name, value }
   };
 }
 
-export function roomSelectionChange(id, name, value) {
+export function roomSelectionChange(id, name, value) {  
   return {
-    type: ActionType.SET_ROOMS_VALUE,
+    type: ActionType.ROOM_SELECTION_CHANGE,
     payload: { id, name, value }
   };
 }

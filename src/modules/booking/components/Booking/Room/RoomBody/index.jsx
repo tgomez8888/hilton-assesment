@@ -1,5 +1,6 @@
 import React from "react";
 import GuessSelector from "./GuestSelector";
+import enhance from "./enhancers";
 
 export function RoomBody({room, onRoomValuesChange}){
   return(
@@ -24,4 +25,4 @@ export function RoomBody({room, onRoomValuesChange}){
   );
 }
 
-export default RoomBody;
+export default enhance(RoomBody);

@@ -1,4 +1,5 @@
 import React from "react";
+import enhance from "./enhancers";
 
 export function RoomHeader({room, onRoomValuesChange}){
   return(
@@ -11,4 +12,4 @@ export function RoomHeader({room, onRoomValuesChange}){
   );
 }
 
-export default RoomHeader;
+export default enhance(RoomHeader);
