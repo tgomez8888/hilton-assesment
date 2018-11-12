@@ -6,20 +6,20 @@ Code is in mobile folder.
 Assesment 2:
 
 Clone project.
-git clone git@github.com:tgomez8888/hilton-assesment.git
+git clone git@github.com:tgomez8888/hilton-assessment.git
 
 COde is on src
 
 To run the project run following commands in terminal
 
 ```
-cd hilton-assesment
+cd hilton-assessment
 yarn install
 yarn start
 ```
 or you could run 
 ```
-cd hilton-assesment
+cd hilton-assessment
 docker-compose up
 ```
 
