@@ -4,6 +4,7 @@ git clone git@github.com:tgomez8888/hilton-assesment.git
 To run the project run following commands in terminal
 
 ```
+cd hilton-assesment
 yarn install
 yarn start
 ```
