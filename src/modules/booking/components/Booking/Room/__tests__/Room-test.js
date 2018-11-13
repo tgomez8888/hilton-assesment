@@ -1,16 +1,16 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import differenceObjects from "../../../../../../utils/fp/differenceObjects";
+import { mount } from "enzyme";
 import EnhancedRoom, { Room } from "..";
+import { testComponent } from "../../../../../../utils/test/testComponent";
+import { defaultRooms } from "../../../../services/booking";
 
 describe("Room", () => {
-  function render({ room, onChange }) {
-    return shallow(<Room room={room} onRoomValuesChange={onChange} onRoomSelectedChange={onChange} />);
+  function render({ room }) {
+    return mount(testComponent(Room, {room}));
   }
 
-  // function renderEnhanced({ room, onValueChange, onSelectionChange }) {
-  //   return mount(<EnhancedRoom room={room} onRoomValuesChange={onValueChange} onRoomSelectionChange={onSelectionChange} />);
-  // }  
+  function renderEnhanced({ id }) {
+    return mount(testComponent(EnhancedRoom, {id}, {booking: {rooms: defaultRooms}}));
+  }  
 
   test("renders correctly", () => {
     const room = {
@@ -20,7 +20,13 @@ describe("Room", () => {
       adults: 1,
       children: 0
     };
-    const wrapper = render({ room, onChange: jest.fn() });
+    const wrapper = render({ room });
+
+    expect(wrapper.html()).toMatchSnapshot();
+  });  
+
+  test("loads the correct room from state and renders correctly", () => {    
+    const wrapper = renderEnhanced({ id: 2 });
 
     expect(wrapper.html()).toMatchSnapshot();
   });  

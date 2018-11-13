@@ -15,7 +15,7 @@ describe("booking-service", () => {
     const room3 = { id: 3, priority: 3 };
 
     expect(isHigherPriority(newRoom, room1)).toBeTruthy();
-    expect(isHigherPriority(newRoom, room2)).toBeFalsy();
+    expect(isHigherPriority(newRoom, room2)).toBeTruthy();
     expect(isHigherPriority(newRoom, room3)).toBeFalsy();
   });
 

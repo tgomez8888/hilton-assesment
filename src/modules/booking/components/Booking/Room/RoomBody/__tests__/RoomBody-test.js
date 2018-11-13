@@ -1,10 +1,10 @@
 import React from "react";
 import { mount } from "enzyme";
-import RoomBody from "..";
+import {RoomBody} from "..";
 
 describe("RoomBody", () => {
   function render({ room, onChange }) {
-    return mount(<RoomBody room={room} onRoomValuesChange={onChange} />);
+    return mount(<RoomBody room={room} onRoomValuesChange={onChange}/>);
   }
 
   test("renders disabled fields when room is not selected", () => {

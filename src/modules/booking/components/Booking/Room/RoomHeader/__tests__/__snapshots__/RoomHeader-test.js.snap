@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RoomHeader renders checkbox label when room priority greater than 1 1`] = `"<div class=\\"card-header\\"><input type=\\"checkbox\\" name=\\"selected\\"/>Room 5</div>"`;
+exports[`RoomHeader renders checkbox label when room priority greater than 1 1`] = `"<div class=\\"card-header\\"><input type=\\"checkbox\\" name=\\"selected\\">Room 5</div>"`;
 
 exports[`RoomHeader renders only label when room priority is 1 1`] = `"<div class=\\"card-header\\">Room 1</div>"`;

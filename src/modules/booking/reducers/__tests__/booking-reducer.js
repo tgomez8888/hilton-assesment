@@ -9,7 +9,7 @@ import {
 import reducer from "..";
 
 describe("booking reducer", () => {
-  const initialState = indexBy(prop("id"), defaultRooms);
+  const initialState = {app:{ booking: {rooms: indexBy(prop("id"), defaultRooms)}}};
   const rooms = [
     { id: 1, priority: 1, selected: true, adults: "2", children: "1" },
     { id: 2, priority: 2, selected: true, adults: "1", children: "2" },

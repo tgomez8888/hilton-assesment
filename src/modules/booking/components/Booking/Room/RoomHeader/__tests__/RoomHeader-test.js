@@ -1,10 +1,10 @@
-import React from "react";
-import { shallow } from "enzyme";
-import RoomHeader from "..";
+import { mount } from "enzyme";
+import {RoomHeader} from "..";
+import { testComponent } from "../../../../../../../utils/test/testComponent";
 
 describe("RoomHeader", () => {
   function render({ room, onChange }) {
-    return shallow(<RoomHeader room={room} onRoomValuesChange={onChange} />);
+    return mount(testComponent(RoomHeader, {room, onRoomValuesChange: onChange}));
   }
 
   test("renders only label when room priority is 1", () => {

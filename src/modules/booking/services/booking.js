@@ -8,7 +8,7 @@ import {
   ifElse,
   identity,
   indexBy,
-  lt,
+  lte,
   map,
   pipe,
   prop,
@@ -33,7 +33,7 @@ export const updateRoom = curry((newRoom, rooms) =>
 export const isHigherPriority = curry((newRoom, room) =>
   pipe(
     prop("priority"),
-    lt(__, newRoom.priority)
+    lte(__, newRoom.priority)
   )(room)
 );
 
