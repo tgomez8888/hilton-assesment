@@ -1,5 +1,5 @@
-import React from "react";
-import { mount, shallow } from "enzyme";
+import { indexBy, prop } from "ramda";
+import { mount } from "enzyme";
 import { defaultRooms } from "../../../services/booking";
 import EnhancedBooking, { Booking } from "..";
 import { testComponent } from "../../../../../utils/test/testComponent";
@@ -7,7 +7,11 @@ import { testComponent } from "../../../../../utils/test/testComponent";
 describe("Booking", () => {
   function render({ ids }) {
     return mount(
-      testComponent(Booking, { ids }, { booking: { rooms: defaultRooms } })
+      testComponent(
+        Booking,
+        { ids },
+        { booking: { rooms: indexBy(prop("id"), defaultRooms) } }
+      )
     );
   }
 
@@ -22,7 +26,7 @@ describe("Booking", () => {
   }
 
   test("renders corectly", () => {
-    const wrapper = render({ ids: [1, 2, 3, 4] });
+    const wrapper = render({ ids: ["1", "2", "3", "4"] });
 
     expect(wrapper.html()).toMatchSnapshot();
   });
