@@ -1,15 +1,28 @@
+Assesment 1:
+
+Code is in mobile folder.
+
+
+Assesment 2:
+
 Clone project.
-git clone git@github.com:tgomez8888/hilton-assesment.git
+git clone git@github.com:tgomez8888/hilton-assessment.git
+
+Code is on src
 
 To run the project run following commands in terminal
 
+```
+cd hilton-assessment
 yarn install
 yarn start
+```
+or you could run 
+```
+cd hilton-assessment
+docker-compose up
+```
 
-or you could run docker-compose up
+Either way page should be available at http://localhost:3000
 
-either way page should be available in http://localhost:3000
-
-for running the test, just run yarn test and then press 'a' to run all tests (Didn't have enough time to fix the tests of the components now with redux, I did only one test of the action/reducer/selector. Code itself is working as the one with component state).
-
-
+For running the tests, just run yarn test and then press 'a' to run all tests.
