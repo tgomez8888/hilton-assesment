@@ -5,11 +5,11 @@ import EnhancedBooking, { Booking } from "..";
 import { testComponent } from "../../../../../utils/test/testComponent";
 
 describe("Booking", () => {
-  function render({ ids }) {
+  function render({ ids, onSubmit }) {
     return mount(
       testComponent(
         Booking,
-        { ids },
+        { ids, onSubmit },
         { booking: { rooms: indexBy(prop("id"), defaultRooms) } }
       )
     );
@@ -48,4 +48,14 @@ describe("Booking", () => {
 
     expect(wrapper.html()).toMatchSnapshot();
   });
+
+  test("on submit click onSubmit gets called", () => {
+    const testFunction = jest.fn();
+    const onSubmit = () => {testFunction();}
+    const wrapper = render({ ids:[], onSubmit });    
+
+    wrapper.find("form").simulate("submit");
+
+    expect(testFunction).toBeCalled();
+  })
 });

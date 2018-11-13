@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { compose, lifecycle } from "recompose";
-import { either, equals, isEmpty, isNil} from "ramda";
+import { either, equals, isEmpty, isNil, values} from "ramda";
 import { getRoomsId, getRooms } from "../../selectors";
 import {setRoomsValue} from "../../actions";
 
@@ -12,7 +12,7 @@ function mapStateToProps(state, {setRoomsValue}) {
   const onSubmit = e => {
     e.preventDefault();
     // Here you could call GraphQL mutation to save rooms to server
-    console.log(rooms);
+    console.log(values(rooms));
   };
   return {
 		ids: getRoomsId(state),
