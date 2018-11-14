@@ -1,0 +1,104 @@
+body{
+  margin: 0;
+  padding: 0;
+  height:100%
+}
+
+:root{
+  --mdc-theme-primary: #1b1b1b;
+}
+
+.main {
+  background-image: url('../images/background.png');    
+  background-position-y: 60%;
+  background-size: cover;  
+  display: flex;
+  flex-flow: column;
+  height:100%;
+}
+
+img.logo{
+  clip: rect(0px, 60px, 30px, 20px);
+  height: 100%;
+  top: 15px;
+  position: absolute;
+}
+
+.logo_overlay{
+  width: 50px;
+  height: 100%;
+  position: relative;
+  left: -12px;
+  background-color: rgba(27,27,27,1);
+  mix-blend-mode: screen;
+}
+
+section.logo{
+  background-image: url('../images/HI_mk_logo_hiltonbrandlogo_3.jpg');
+  background-clip: image;
+}
+
+
+@media (max-width: 599px){
+  img.logo{
+    clip: rect(0px, 50px, 25px, 20px);
+    height: 100%;
+    top: 13px;
+    position: absolute
+  }  
+}
+
+button{
+  background-color: #090909!important;
+}
+
+.details {
+  padding: 5%;
+  color: #fff;
+}
+.details_media{
+  width: 100%;
+}
+.details img{  
+  width: 100%;  
+  border: #fff solid 4px;
+}
+.details .details-content{  
+  padding-top: 5%;
+}
+.details .details-content .address{  
+  color: #7590ab;  
+}
+
+.details .details-content .tel{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.menu{  
+  padding: 5%;  
+}
+
+.menu ul.menu-list {   
+  padding: 0;
+}
+
+.menu ul.menu-list li.mdc-list-item{
+  background-image: linear-gradient(#fff, #c0cedb );
+  margin: 0;
+  font-weight: bold;
+  border: none;  
+}
+.menu ul.menu-list li.mdc-list-item:first-child{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.menu ul.menu-list li.mdc-list-item:last-child{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.menu ul.menu-list li.mdc-list-item .mdc-list-item__meta{  
+  font-weight: bold;
+}
